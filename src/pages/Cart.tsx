@@ -14,11 +14,12 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { removeFromCart, updateQuantity, clearCart } from '@/store/slices/cartSlice';
-import { toast } from 'sonner';
+import { useSnackbar } from '@/hooks/useSnackbar';
 
 const Cart = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const { toast } = useSnackbar();
   const cartItems = useAppSelector((state) => state.cart.items);
 
   const handleRemove = (id: number, title: string) => {

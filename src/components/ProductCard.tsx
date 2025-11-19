@@ -14,7 +14,7 @@ import { Product } from '@/store/slices/productsSlice';
 import { useAppDispatch } from '@/store/hooks';
 import { addToCart } from '@/store/slices/cartSlice';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'sonner';
+import { useSnackbar } from '@/hooks/useSnackbar';
 
 interface ProductCardProps {
   product: Product;
@@ -23,6 +23,7 @@ interface ProductCardProps {
 const ProductCard = ({ product }: ProductCardProps) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const { toast } = useSnackbar();
 
   const handleAddToCart = () => {
     dispatch(addToCart(product));

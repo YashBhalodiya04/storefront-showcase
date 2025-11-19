@@ -13,12 +13,13 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { addToCart } from '@/store/slices/cartSlice';
-import { toast } from 'sonner';
+import { useSnackbar } from '@/hooks/useSnackbar';
 
 const ProductDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const { toast } = useSnackbar();
   const products = useAppSelector((state) => state.products.items);
   const loading = useAppSelector((state) => state.products.loading);
 
